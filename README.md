@@ -61,41 +61,45 @@ Choose DuckDB.dart for a lightweight, high-performance database solution tailore
 
 ## Installation
 
-DuckDB.dart is available on [pub.dev](https://pub.dev/packages/dart_duckdb). Add it to your project as follows:
+Add DuckDB.dart to your project via git dependency in your `pubspec.yaml`:
 
 ### For Flutter Projects
 
-Run this command:
-
-```bash
-flutter pub add dart_duckdb
-```
-
-This updates your `pubspec.yaml`:
-
 ```yaml
 dependencies:
-  dart_duckdb: ^1.2.0
+  dart_duckdb:
+    git:
+      url: https://github.com/TheAtlasRepository/duckdb_dart.git
+      ref: main  # or a specific tag like v1.4.5
+```
+
+Then run:
+
+```bash
+flutter pub get
 ```
 
 ### For Dart Projects
 
-Run this command:
-
-```bash
-dart pub add dart_duckdb
-```
-
-This updates your `pubspec.yaml`:
+Add the git dependency to your `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  dart_duckdb: ^1.2.0
+  dart_duckdb:
+    git:
+      url: https://github.com/TheAtlasRepository/duckdb_dart.git
+      ref: main
+```
+
+Then run:
+
+```bash
+dart pub get
 ```
 
 Download the latest duckdb release from [duckdb.org](https://github.com/duckdb/duckdb/releases).
 
-In your dart code, tell the framework where the duckdb binary.
+In your dart code, tell the framework where the duckdb binary:
 
 ```dart
   open.overrideFor(
@@ -207,7 +211,7 @@ Query CSV files directly:
   }
 ```
 
-Explore more examples in the [examples directory](https://github.com/tigereyelabs/duckdb-dart/tree/main/examples).
+Explore more examples in the [examples directory](https://github.com/TheAtlasRepository/duckdb_dart/tree/main/examples).
 
 ---
 
@@ -250,7 +254,7 @@ See platform-specific details in the [Building Instructions](BUILDING.md)
 
 API Documentation
 
-For detailed API information, visit the [API Documentation](https://pub.dev/documentation/dart_duckdb/latest/).
+For detailed API information, generate the documentation locally using `dart doc .` or browse the source code in the [lib/src/api](lib/src/api) directory.
 
 ---
 
