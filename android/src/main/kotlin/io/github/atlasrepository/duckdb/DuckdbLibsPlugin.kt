@@ -1,4 +1,4 @@
-package com.tigereye.duckdb_libs
+package io.github.atlasrepository.duckdb
 
 import androidx.annotation.NonNull
 

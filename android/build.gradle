@@ -1,6 +1,6 @@
 import org.apache.tools.ant.taskdefs.condition.Os
 
-group 'com.tigereye.duckdb_libs'
+group 'io.github.atlasrepository.duckdb'
 version '2.1.0'
 
 buildscript {
@@ -28,7 +28,7 @@ apply plugin: 'kotlin-android'
 
 android {
     compileSdkVersion 35
-    namespace 'com.tigereye.duckdb_libs'
+    namespace 'io.github.atlasrepository.duckdb'
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_17

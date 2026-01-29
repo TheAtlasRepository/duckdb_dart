@@ -51,7 +51,7 @@ flutter:
         pluginClass: DartDuckdbPluginCApi
       android:
         dartPluginClass: DuckDB
-        package: com.tigereye.duckdb_libs
+        package: io.github.atlasrepository.duckdb
         pluginClass: DuckdbLibsPlugin
       linux:
         dartPluginClass: DuckDB
