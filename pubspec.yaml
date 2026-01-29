@@ -1,6 +1,6 @@
 name: dart_duckdb
 description: DuckDB for macOS, iOS, Android, Linux, Windows, and Web
-version: 1.4.4
+version: 1.4.7
 homepage: https://github.com/TheAtlasRepository/duckdb_dart
 issue_tracker: https://github.com/TheAtlasRepository/duckdb_dart/issues
 
