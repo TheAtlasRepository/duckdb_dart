@@ -4,7 +4,7 @@ DUCKDB_REPO = https://github.com/duckdb/duckdb
 DUCKDB_DIR = ./duckdb
 BUILD_DIR = $(DUCKDB_DIR)/build
 LIB_DIR = ./Libraries/release
-EXTENSIONS = 'icu;parquet;json'
+EXTENSIONS = 'icu;parquet;json;autocomplete;core_functions'
 
 # common environment variables
 export CMAKE_TOOLCHAIN_FILE=$(PWD)/ios.toolchain.cmake

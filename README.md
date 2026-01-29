@@ -254,7 +254,7 @@ For detailed API information, visit the [API Documentation](https://pub.dev/docu
 
 ---
 
-If you have any questions, feedback or ideas, feel free to create an [issue](https://github.com/tigereyelabs/duckdb-dart/issues). If you enjoy this project, I'd appreciate your 🌟 on [GitHub](https://github.com/TigerEyeLabs/duckdb-dart).
+If you have any questions, feedback or ideas, feel free to create an [issue](https://github.com/TheAtlasRepository/duckdb_dart/issues). If you enjoy this project, I'd appreciate your 🌟 on [GitHub](https://github.com/TheAtlasRepository/duckdb_dart).
 
 ---
 
