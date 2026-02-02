@@ -1,0 +1,3 @@
+[submodule "extensions/atlas_fast_mvt"]
+	path = extensions/atlas_fast_mvt
+	url = git@github.com:TheAtlasRepository/fast-mvt-duckdb.git

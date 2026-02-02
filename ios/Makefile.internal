@@ -1,10 +1,11 @@
 ## Variables
-VERSION = v1.4.2
+VERSION = v1.4.4
 DUCKDB_REPO = https://github.com/duckdb/duckdb
 DUCKDB_DIR = ./duckdb
 BUILD_DIR = $(DUCKDB_DIR)/build
 LIB_DIR = ./Libraries/release
 EXTENSIONS = 'icu;parquet;json;autocomplete;core_functions'
+EXTENSION_CONFIG = $(PWD)/../extensions/atlas_fast_mvt.cmake
 
 # common environment variables
 export CMAKE_TOOLCHAIN_FILE=$(PWD)/ios.toolchain.cmake
@@ -52,6 +53,7 @@ device: duckdb ## iOS Hardware Build
 	cmake -G Ninja -DFORCE_COLORED_OUTPUT=1 -DBUILD_EXTENSIONS=$(EXTENSIONS) -DLOCAL_EXTENSION_REPO="" \
 	-DOSX_BUILD_ARCH=arm64 -DIOS_PLATFORM=iPhoneOS -DBUILD_SHELL=0 \
 	-DDUCKDB_EXPLICIT_PLATFORM=osx_arm64 -DCMAKE_TOOLCHAIN_FILE=$(CMAKE_TOOLCHAIN_FILE) \
+	-DDUCKDB_EXTENSION_CONFIGS=$(EXTENSION_CONFIG) \
 	-DCMAKE_BUILD_TYPE=Release ../.. && \
 	cmake --build . --target duckdb_framework
 	@cp $(DUCKDB_DIR)/src/include/duckdb.h $(DUCKDB_DIR)/build/release/src/duckdb.framework/Headers
@@ -65,6 +67,7 @@ simulator_no_clone: ## Universal iOS Simulator Build (no clone)
 	cmake -G Ninja -DFORCE_COLORED_OUTPUT=1 -DBUILD_EXTENSIONS=$(EXTENSIONS) -DLOCAL_EXTENSION_REPO="" \
 	-DOSX_BUILD_ARCH=x86_64 -DIOS_PLATFORM=iPhoneSimulator -DBUILD_SHELL=0 \
 	-DDUCKDB_EXPLICIT_PLATFORM=osx_amd64 -DCMAKE_TOOLCHAIN_FILE=$(CMAKE_TOOLCHAIN_FILE) \
+	-DDUCKDB_EXTENSION_CONFIGS=$(EXTENSION_CONFIG) \
 	-DCMAKE_BUILD_TYPE=Release ../.. && \
 	cmake --build . --target duckdb_framework
 	@cp $(DUCKDB_DIR)/src/include/duckdb.h $(DUCKDB_DIR)/build/release/src/duckdb.framework/Headers
@@ -75,6 +78,7 @@ simulator_no_clone: ## Universal iOS Simulator Build (no clone)
 	cmake -G Ninja -DFORCE_COLORED_OUTPUT=1 -DBUILD_EXTENSIONS=$(EXTENSIONS) -DLOCAL_EXTENSION_REPO="" \
 	-DOSX_BUILD_ARCH=arm64 -DIOS_PLATFORM=iPhoneSimulator -DBUILD_SHELL=0 \
 	-DDUCKDB_EXPLICIT_PLATFORM=osx_arm64 -DCMAKE_TOOLCHAIN_FILE=$(CMAKE_TOOLCHAIN_FILE) \
+	-DDUCKDB_EXTENSION_CONFIGS=$(EXTENSION_CONFIG) \
 	-DCMAKE_BUILD_TYPE=Release ../.. && \
 	cmake --build . --target duckdb_framework
 	@cp $(DUCKDB_DIR)/src/include/duckdb.h $(DUCKDB_DIR)/build/release/src/duckdb.framework/Headers
