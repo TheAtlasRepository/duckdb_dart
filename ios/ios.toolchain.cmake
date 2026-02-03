@@ -26,7 +26,8 @@ else()
 endif()
 
 # Specify the minimum deployment target
-set(CMAKE_OSX_DEPLOYMENT_TARGET "11.0")
+# iOS 12.0 required for std::visit and std::optional::value()
+set(CMAKE_OSX_DEPLOYMENT_TARGET "12.0")
 
 # Set the C++ standard
 set(CMAKE_CXX_STANDARD 17)
