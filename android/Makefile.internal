@@ -5,7 +5,6 @@ DUCKDB_DIR = duckdb
 BUILD_DIR = $(DUCKDB_DIR)/build
 LIB_DIR = src/main/jniLibs
 EXTENSIONS = 'icu;parquet;json;autocomplete;core_functions'
-EXTENSION_CONFIG = $(PWD)/../extensions/atlas_fast_mvt.cmake
 
 ifndef ANDROID_NDK_HOME
 # https://developer.android.com/studio
@@ -34,8 +33,7 @@ CMAKE_VARS_BUILD = -DBUILD_UNITTESTS=0 \
     -DANDROID_PLATFORM=23 \
     -DANDROID_STL=c++_static \
     -DCMAKE_POSITION_INDEPENDENT_CODE=ON \
-    -DBUILD_SHARED_LIBS=OFF \
-    -DDUCKDB_EXTENSION_CONFIGS=$(EXTENSION_CONFIG)
+    -DBUILD_SHARED_LIBS=OFF
 
 .PHONY: all reset release help
 

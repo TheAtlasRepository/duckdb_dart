@@ -22,14 +22,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Setup SSH for submodules
-        uses: webfactory/ssh-agent@v0.9.0
-        with:
-          ssh-private-key: ${{ secrets.FAST_MVT_DEPLOY_KEY }}
-
-      - name: Checkout submodules
-        run: git submodule update --init --recursive
-
       - name: Install dependencies
         run: |
           brew install ninja cmake ccache
@@ -90,14 +82,6 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-
-      - name: Setup SSH for submodules
-        uses: webfactory/ssh-agent@v0.9.0
-        with:
-          ssh-private-key: ${{ secrets.FAST_MVT_DEPLOY_KEY }}
-
-      - name: Checkout submodules
-        run: git submodule update --init --recursive
 
       - name: Install dependencies
         run: |
