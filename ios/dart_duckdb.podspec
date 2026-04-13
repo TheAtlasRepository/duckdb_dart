@@ -27,9 +27,9 @@ A new flutter plugin project.
     mkdir -p Libraries/release  # Ensure the directory exists
     if [ ! -d "Libraries/release/duckdb.xcframework" ]; then
       echo "Downloading DuckDB XCFramework..."
-      curl -L -o duckdb-framework-ios.zip "https://github.com/TheAtlasRepository/duckdb_dart/releases/download/v#{s.version}/duckdb-framework-ios.zip"
-      unzip -o duckdb-framework-ios.zip -d Libraries/release/
-      rm duckdb-framework-ios.zip
+      curl -L -o duckdb-xcframework-ios.zip "https://github.com/TheAtlasRepository/duckdb_dart/releases/download/v#{s.version}/duckdb-xcframework-ios.zip"
+      unzip -o duckdb-xcframework-ios.zip -d Libraries/release/
+      rm duckdb-xcframework-ios.zip
     else
       echo "DuckDB library already exists."
     fi

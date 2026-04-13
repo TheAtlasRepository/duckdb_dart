@@ -44,10 +44,11 @@ jobs:
       - name: Create XCFramework
         working-directory: ios
         run: |
+          rm -rf Libraries/release/duckdb.xcframework
           xcodebuild -create-xcframework \
             -framework Libraries/release/duckdb.framework \
             -framework Libraries/release/duckdb.framework.sim \
-            -output Libraries/release/duckdb.xcframework || true
+            -output Libraries/release/duckdb.xcframework
 
       - name: Package iOS Device Framework
         working-directory: ios
@@ -61,6 +62,12 @@ jobs:
           cd Libraries/release
           zip -r duckdb-framework-ios-simulator.zip duckdb.framework.sim
 
+      - name: Package iOS XCFramework
+        working-directory: ios
+        run: |
+          cd Libraries/release
+          zip -r duckdb-xcframework-ios.zip duckdb.xcframework
+
       - name: Upload iOS Device Framework
         uses: actions/upload-artifact@v4
         with:
@@ -72,6 +79,12 @@ jobs:
         with:
           name: duckdb-framework-ios-simulator
           path: ios/Libraries/release/duckdb-framework-ios-simulator.zip
+
+      - name: Upload iOS XCFramework
+        uses: actions/upload-artifact@v4
+        with:
+          name: duckdb-xcframework-ios
+          path: ios/Libraries/release/duckdb-xcframework-ios.zip
 
   build-android:
     name: Build Android Libraries
@@ -139,6 +152,7 @@ jobs:
           files: |
             artifacts/duckdb-framework-ios/duckdb-framework-ios.zip
             artifacts/duckdb-framework-ios-simulator/duckdb-framework-ios-simulator.zip
+            artifacts/duckdb-xcframework-ios/duckdb-xcframework-ios.zip
             artifacts/libduckdb-android_arm64-v8a/libduckdb-android_arm64-v8a.zip
             artifacts/libduckdb-android_armeabi-v7a/libduckdb-android_armeabi-v7a.zip
           generate_release_notes: true
