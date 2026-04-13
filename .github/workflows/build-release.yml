@@ -44,11 +44,15 @@ jobs:
       - name: Create XCFramework
         working-directory: ios
         run: |
-          rm -rf Libraries/release/duckdb.xcframework
+          rm -rf Libraries/release/duckdb.xcframework Libraries/release/xcf-staging
+          mkdir -p Libraries/release/xcf-staging/device Libraries/release/xcf-staging/sim
+          cp -R Libraries/release/duckdb.framework Libraries/release/xcf-staging/device/duckdb.framework
+          cp -R Libraries/release/duckdb.framework.sim Libraries/release/xcf-staging/sim/duckdb.framework
           xcodebuild -create-xcframework \
-            -framework Libraries/release/duckdb.framework \
-            -framework Libraries/release/duckdb.framework.sim \
+            -framework Libraries/release/xcf-staging/device/duckdb.framework \
+            -framework Libraries/release/xcf-staging/sim/duckdb.framework \
             -output Libraries/release/duckdb.xcframework
+          rm -rf Libraries/release/xcf-staging
 
       - name: Package iOS Device Framework
         working-directory: ios
