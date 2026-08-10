@@ -95,7 +95,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        abi: [arm64-v8a, armeabi-v7a]
+        abi: [arm64-v8a, armeabi-v7a, x86_64]
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -159,6 +159,7 @@ jobs:
             artifacts/duckdb-xcframework-ios/duckdb-xcframework-ios.zip
             artifacts/libduckdb-android_arm64-v8a/libduckdb-android_arm64-v8a.zip
             artifacts/libduckdb-android_armeabi-v7a/libduckdb-android_armeabi-v7a.zip
+            artifacts/libduckdb-android_x86_64/libduckdb-android_x86_64.zip
           generate_release_notes: true
           draft: false
           prerelease: false

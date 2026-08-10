@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.5.2
+
+- Build and publish `libduckdb.so` for the `x86_64` Android ABI. Apps that
+  packaged an x86_64 variant previously installed with no DuckDB to load and
+  failed at open with `dlopen failed: library "libduckdb.so" not found`.
+
 ## 1.4.4
 
 - upgrade duckdb binaries to 1.4.2

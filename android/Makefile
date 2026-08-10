@@ -77,7 +77,7 @@ build_%: duckdb
 	@mkdir -p $(LIB_DIR)/$*
 	@cp $(BUILD_DIR)/src/libduckdb.so $(LIB_DIR)/$*/libduckdb.so;
 
-release: build_arm64-v8a clean build_armeabi-v7a ## Build for each ABI
+release: build_arm64-v8a clean build_armeabi-v7a clean build_x86_64 ## Build for each ABI
 	echo "Android Release Build Complete"
 
 help: ## Display this help message
