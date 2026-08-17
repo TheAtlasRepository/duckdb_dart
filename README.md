@@ -215,6 +215,20 @@ Explore more examples in the [examples directory](https://github.com/TheAtlasRep
 
 ---
 
+## Which DuckDB does this ship?
+
+The root `DUCKDB_VERSION` file. It is the tag the Android and iOS Makefiles clone
+from DuckDB and the version the release workflow builds; the `duckdb_version`
+workflow input overrides it for a one-off build.
+
+This package's own version is independent and does not track DuckDB's — read
+`DUCKDB_VERSION`, not the package version, to find out what the native binaries
+are built from.
+
+`ios/changes.patch` adds the `duckdb_framework` CMake target and is anchored to
+the DuckDB tag in `DUCKDB_VERSION`. Bumping the version usually means re-porting
+that patch; the iOS build fails loudly at `git apply` when it has drifted.
+
 ## Platform Support
 
 DuckDB.dart supports the following platforms:

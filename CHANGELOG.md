@@ -2,6 +2,12 @@
 
 ## 1.5.2
 
+- Upgrade the bundled DuckDB to 1.5.5 everywhere. Android and iOS shipped 1.4.4
+  while the package named itself `1.5.x`; macOS was further back still, at 1.4.2.
+- The DuckDB version now lives in one place, the root `DUCKDB_VERSION` file, and
+  is what every Makefile, the macOS podspec and the release workflow build. The
+  workflow's `duckdb_version` input previously only keyed the ccache and selected
+  nothing.
 - Build and publish `libduckdb.so` for the `x86_64` Android ABI. Apps that
   packaged an x86_64 variant previously installed with no DuckDB to load and
   failed at open with `dlopen failed: library "libduckdb.so" not found`.
