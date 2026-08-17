@@ -97,3 +97,6 @@ examples/simple/linux/flutter/ephemeral/.plugin_symlinks/
 
 # FVM Version Cache
 .fvm/
+
+# Wrapper-project build tree (prototype)
+ios/build-proto/
